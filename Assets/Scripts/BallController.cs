@@ -25,11 +25,10 @@ public class BallController : MonoBehaviour {
 
 	private void OnCollisionEnter2D (Collision2D col) {
 		if (col.gameObject.tag == this.gameObject.tag) {
-			Destroy (this.gameObject);
 			sk.IncreaseScore (1);
 		} else {
-			// Lose Condition
-			Debug.Log ("You lose!");
+			sk.DecreaseLives ();
 		}
+		Destroy (this.gameObject);
 	}
 }

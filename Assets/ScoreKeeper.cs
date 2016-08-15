@@ -9,9 +9,12 @@ public class ScoreKeeper : MonoBehaviour {
 
 	private int score;
 	private int lives = 5;
+	private GameManager gm;
 
 	private void Start () {
 		UpdateScoreText ();
+		UpdateLivesText ();
+		gm = FindObjectOfType<GameManager> ();
 	}
 
 	public void IncreaseScore (int value) {
@@ -23,7 +26,7 @@ public class ScoreKeeper : MonoBehaviour {
 		lives--;
 		UpdateLivesText ();
 		if (lives <= 0) {
-
+			gm.RestartLevel ();
 		}
 	}
 
