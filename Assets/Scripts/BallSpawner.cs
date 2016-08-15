@@ -10,6 +10,7 @@ public class BallSpawner : MonoBehaviour {
 	}
 
 	private void SpawnBalls () {
-		Instantiate(balls[Random.Range(0, balls.Length)]);
+		GameObject ball = Instantiate(balls[Random.Range(0, balls.Length)]);
+		ball.transform.SetParent (this.transform);
 	}
 }
